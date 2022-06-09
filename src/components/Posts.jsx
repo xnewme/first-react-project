@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 
 const Posts = () => {
-  const [resourceType, setResourceType] = useState('posts');
-  const [items, setItems] = useState([]);
+  const [resourceType, setResourceType] = useState('posts')
+  const [items, setItems] = useState([])
 
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/${resourceType}`)
       .then((response) => response.json())
-      .then((json) => setItems(json));
-  }, [resourceType]);
+      .then((json) => setItems(json))
+  }, [resourceType])
 
   return (
     <div>
@@ -19,10 +19,10 @@ const Posts = () => {
       </div>
       <h3>{resourceType}</h3>
       {items.map((item) => {
-        return <pre>{JSON.stringify(item)}</pre>;
+        return <pre key={item.id}>{JSON.stringify(item)}</pre>
       })}
     </div>
-  );
-};
+  )
+}
 
-export default Posts;
+export default Posts
