@@ -7,10 +7,10 @@ const Counter = () => {
   const [count, setCount] = useState(0)
   //aprasome funkcijas
   const decreaseCount = () => {
-    setCount(count - 1)
+    setCount((prevCount) => prevCount - 1)
   }
   const increaseCount = () => {
-    setCount(count + 1)
+    setCount((prevCount) => prevCount + 1)
   }
   return (
     <div>
